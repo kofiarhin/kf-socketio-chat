@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://kf-socketio-chat.onrender.com/",
     methods: ["GET", "POST"],
   },
 });
@@ -28,11 +28,11 @@ io.on("connection", (socket) => {
   });
 });
 
-if(process.env.NODE_ENV == "production") {
-    const filePath = path.join(__dirname, "dist", "index.html")
-    app.get("*", (req, res) => {
-        return res.sendFile(filePath)
-    })
+if (process.env.NODE_ENV == "production") {
+  const filePath = path.join(__dirname, "dist", "index.html");
+  app.get("*", (req, res) => {
+    return res.sendFile(filePath);
+  });
 }
 
 server.listen(port, () =>

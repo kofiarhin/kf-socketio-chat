@@ -2,7 +2,7 @@ import "./app.scss";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://kf-socketio-chat.onrender.com/");
 const App = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [message, setMessage] = useState("");
